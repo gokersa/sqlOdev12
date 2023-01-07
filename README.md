@@ -11,18 +11,28 @@
 
 ***CEVAPLAR***
 
-1) select * from film
+1) select count(length) from film
 where length > (
 select
 avg (length)
 grom
 film
 );
-2) select * from film
+2) select count(rental_rate) from film
 where rental_rate = (
 select 
 	max(rental_rate)
 from 
 	film
 );
-3) 
+3) select * from film
+where rental_rate = (
+select max(rental_rate)
+	from film
+)
+and  replacement_cost = (
+select min(replacement_cost)
+	from film
+);
+
+4) 
