@@ -35,4 +35,9 @@ select min(replacement_cost)
 	from film
 );
 
-4) 
+4) select customer.first_name, customer.last_name, payment.amount from payment
+full join customer on payment.customer_id = customer.customer_id
+where payment.amount =
+(
+    select max(amount) from payment
+);
